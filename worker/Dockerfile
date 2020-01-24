@@ -2,9 +2,9 @@
 #set http-proxy=http://proxy-mwg-http.ca.sunlife:8080
 #set https-proxy=http://proxy-mwg-http.ca.sunlife:8080
 # To create image run
-# docker build -f Dockerfile.dev . -t frontend
+# docker build -f Dockerfile.dev . -t worker
 #To start container run
-# docker run -p 3000:3000 -v /app/node_modules -v C:\Projects\2020\ContainerService\Training\frontend:/app -it frontend sh
+# docker run -t worker
 # To test http://localhost:3000/
 
 

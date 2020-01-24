@@ -2,14 +2,14 @@
 #set http-proxy=http://proxy-mwg-http.ca.sunlife:8080
 #set https-proxy=http://proxy-mwg-http.ca.sunlife:8080
 # To create image run
-# docker build -f Dockerfile . -t frontendprod
+# docker build -f Dockerfile.dev . -t server
 #To start container run
-# docker run -p 8090:80 -t frontendprod
-# To test http://localhost:8090/
+# docker run -t server 
+# To test http://localhost:3000/
 
 
 # Specify base image
-FROM node:alpine as builder
+FROM node:alpine
 
 # Define target working directory
 WORKDIR '/app'
@@ -22,8 +22,4 @@ RUN npm install
 COPY . .
 
 #Tell the image what to do when it starts  as a container
-CMD ["npm", "run", "build"]
-
-# Create new nginx image
-FROM nginx 
-COPY --from=builder /app/build /usr/share/nginx/html
+CMD ["npm", "run", "dev"]
