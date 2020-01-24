@@ -16,7 +16,8 @@ after_success:
   - docker build -t hanabadr/multi-server ./server
   - docker build -t hanabadr/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push multi-client 
-  - docker push multi-nginx 
-  - docker push multi-server 
-  - docker push multi-worker
+  - docker push hanabadr/multi-client 
+  - docker push hanabadr/multi-nginx 
+  - docker push hanabadr/multi-server 
+  - docker push hanabadr/multi-worker
+  
