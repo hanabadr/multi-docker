@@ -16,11 +16,11 @@ after_success:
   - docker build-t hanabadr/multi-server ./server
   - docker build-t hanabadr/multi-worker ./worker
  
-#Login into docker cli
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-# Take these images and push them to docker hub
-- docker push multi-client 
-- docker push multi-nginx 
-- docker push multi-server 
-- docker push multi-worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+
+  - docker push multi-client 
+  - docker push multi-nginx 
+  - docker push multi-server 
+  - docker push multi-worker
