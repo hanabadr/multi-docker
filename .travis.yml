@@ -11,10 +11,10 @@ script:
   - docker run -e CI=true hanabadr/react-test npm test
   
 after_success:
-  - docker build-t hanabadr/multi-client ./client
-  - docker build-t hanabadr/multi-nginx ./nginx
-  - docker build-t hanabadr/multi-server ./server
-  - docker build-t hanabadr/multi-worker ./worker
+  - docker build -t hanabadr/multi-client ./client
+  - docker build -t hanabadr/multi-nginx ./nginx
+  - docker build -t hanabadr/multi-server ./server
+  - docker build -t hanabadr/multi-worker ./worker
  
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
