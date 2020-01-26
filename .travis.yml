@@ -15,9 +15,24 @@ after_success:
   - docker build -t hanaabadr/multi-nginx ./nginx
   - docker build -t hanaabadr/multi-server ./server
   - docker build -t hanaabadr/multi-worker ./worker
+  # Login into Docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push images to Docker hub 
   - docker push hanaabadr/multi-client 
   - docker push hanaabadr/multi-nginx 
   - docker push hanaabadr/multi-server 
   - docker push hanaabadr/multi-worker
+
+#deploy:
+#  edge: true
+#  provider: elasticbeanstalk
+#  region: ca-west-2
+#  app: multi-docker
+#  env: MultiDocker-env
+#  bucket_name: elasticbeanstalk-us-west-1-30647662767
+#  bucket_path: multi-docker
+#  on:
+#    branch: master
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
   
